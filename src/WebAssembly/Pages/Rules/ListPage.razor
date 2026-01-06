@@ -1,0 +1,54 @@
+@page "/rule"
+@using MRVA.Reports.Data.Models
+
+<MudContainer MaxWidth="MaxWidth.False" Class="pa-4">
+
+<MudBreadcrumbs 
+    Items="BreadcrumbItems"
+    Separator=">" />
+
+@if (RuleRows == null)
+{
+    return;
+}
+
+<MudDataGrid 
+    T="RuleRow"
+    Filterable="true"
+    Items="@RuleRows"
+    MultiSelection="false"
+    QuickFilter="@RuleFilter"
+    SortMode="SortMode.Single"
+    Dense="true"
+    Hover="true"
+    Striped="true"
+    Bordered="true"
+    Elevation="2"
+    RowsPerPage="@PageSize"
+    Class="mt-4">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">@ScreenText.Rules</MudText>
+        <MudSpacer/>
+        <MudTextField
+            @bind-Value="SearchString"
+            Placeholder="@ScreenText.Search"
+            Adornment="Adornment.Start"
+            Immediate="true"
+            AdornmentIcon="@Icons.Material.Filled.Search"
+            IconSize="Size.Medium"
+            Class="mt-0"/>
+    </ToolBarContent>
+    <Columns>
+        <PropertyColumn Property="r => r.Rule.Id" Title="@ScreenText.Id" />
+        <PropertyColumn Property="r => r.Rule.RuleDescription" Title="@ScreenText.Description" />
+        <PropertyColumn Property="r => r.Rule.SeverityLevel" Title="@ScreenText.Severity" />
+        <PropertyColumn Property="r => r.Rule.Kind" Title="@ScreenText.Kind" />
+        <PropertyColumn Property="r => r.PropertyTagsDisplay" Title="@ScreenText.PropertyTags" />
+        <PropertyColumn Property="r => r.AlertCount" Title="@ScreenText.Alerts" />
+    </Columns>
+    <PagerContent>
+        <MudDataGridPager T="RuleRow" PageSizeOptions="@(new[] { 10, 25, 50, 100 })" />
+    </PagerContent>
+</MudDataGrid>
+
+</MudContainer>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Description" xml:space="preserve">
+        <value>Description</value>
+    </data>
+    <data name="Repositories" xml:space="preserve">
+        <value>Repositories</value>
+    </data>
+    <data name="Rules" xml:space="preserve">
+        <value>Rules</value>
+    </data>
+    <data name="Title" xml:space="preserve">
+        <value>Multi-Repository Variant Analysis</value>
+    </data>
+    <data name="NotFound" xml:space="preserve">
+        <value>Not found</value>
+    </data>
+    <data name="NotFoundMessage" xml:space="preserve">
+        <value>Sorry, the content you are looking for does not exist.</value>
+    </data>
+    <data name="Search" xml:space="preserve">
+        <value>Search</value>
+    </data>
+    <data name="Id" xml:space="preserve">
+        <value>ID</value>
+    </data>
+    <data name="Message" xml:space="preserve">
+        <value>Message</value>
+    </data>
+    <data name="Home" xml:space="preserve">
+        <value>Home</value>
+    </data>
+    <data name="TotalAlerts" xml:space="preserve">
+        <value>Total Alerts</value>
+    </data>
+    <data name="TotalRepositories" xml:space="preserve">
+        <value>Total Repositories</value>
+    </data>
+    <data name="TotalRules" xml:space="preserve">
+        <value>Total Rules</value>
+    </data>
+    <data name="AlertsBySeverity" xml:space="preserve">
+        <value>Alerts by Severity</value>
+    </data>
+    <data name="AlertsByRule" xml:space="preserve">
+        <value>Alerts by Rule</value>
+    </data>
+    <data name="Rule" xml:space="preserve">
+        <value>Rule</value>
+    </data>
+    <data name="Top10AffectedRepositories" xml:space="preserve">
+        <value>Top 10 Affected Repositories</value>
+    </data>
+    <data name="Rank" xml:space="preserve">
+        <value>#</value>
+    </data>
+    <data name="Repository" xml:space="preserve">
+        <value>Repository</value>
+    </data>
+    <data name="Alerts" xml:space="preserve">
+        <value>Alerts</value>
+    </data>
+    <data name="Top10CommonFilePaths" xml:space="preserve">
+        <value>Top 10 Most Common File Paths</value>
+    </data>
+    <data name="FilePath" xml:space="preserve">
+        <value>File Path</value>
+    </data>
+    <data name="RepositoryAlertCoverage" xml:space="preserve">
+        <value>Repository Alert Coverage</value>
+    </data>
+    <data name="WithAlerts" xml:space="preserve">
+        <value>With Alerts</value>
+    </data>
+    <data name="WithoutAlerts" xml:space="preserve">
+        <value>Without Alerts</value>
+    </data>
+    <data name="RuleAlertCoverage" xml:space="preserve">
+        <value>Rule Alert Coverage</value>
+    </data>
+    <data name="ShowingTop10" xml:space="preserve">
+        <value>Showing top 10 results only</value>
+    </data>
+    <data name="Name" xml:space="preserve">
+        <value>Name</value>
+    </data>
+    <data name="Url" xml:space="preserve">
+        <value>URL</value>
+    </data>
+    <data name="Severity" xml:space="preserve">
+        <value>Severity</value>
+    </data>
+    <data name="Kind" xml:space="preserve">
+        <value>Kind</value>
+    </data>
+    <data name="PropertyTags" xml:space="preserve">
+        <value>Property Tags</value>
+    </data>
+    <data name="StartLine" xml:space="preserve">
+        <value>Start Line</value>
+    </data>
+    <data name="StartColumn" xml:space="preserve">
+        <value>Start Column</value>
+    </data>
+    <data name="EndLine" xml:space="preserve">
+        <value>End Line</value>
+    </data>
+    <data name="EndColumn" xml:space="preserve">
+        <value>End Column</value>
+    </data>
+    <data name="Source" xml:space="preserve">
+        <value>Source</value>
+    </data>
+    <data name="Sink" xml:space="preserve">
+        <value>Sink</value>
+    </data>
+    <data name="Snippet" xml:space="preserve">
+        <value>Snippet</value>
+    </data>
+    <data name="Context" xml:space="preserve">
+        <value>Context</value>
+    </data>
+    <data name="StepCount" xml:space="preserve">
+        <value>Step Count</value>
+    </data>
+    <data name="ResultFingerprint" xml:space="preserve">
+        <value>Result Fingerprint</value>
+    </data>
+    <data name="AnalysisDate" xml:space="preserve">
+        <value>Date</value>
+    </data>
+    <data name="Started" xml:space="preserve">
+        <value>Started</value>
+    </data>
+    <data name="Completed" xml:space="preserve">
+        <value>Completed</value>
+    </data>
+    <data name="ToolName" xml:space="preserve">
+        <value>Tool</value>
+    </data>
+    <data name="ToolVersion" xml:space="preserve">
+        <value>Tool Version</value>
+    </data>
+    <data name="ControllerRepo" xml:space="preserve">
+        <value>Controller Repo</value>
+    </data>
+    <data name="State" xml:space="preserve">
+        <value>State</value>
+    </data>
+    <data name="QueryLanguage" xml:space="preserve">
+        <value>Query Language</value>
+    </data>
+    <data name="Status" xml:space="preserve">
+        <value>Status</value>
+    </data>
+    <data name="FailureReason" xml:space="preserve">
+        <value>Failure Reason</value>
+    </data>
+    <data name="ScannedRepos" xml:space="preserve">
+        <value>Scanned Repos</value>
+    </data>
+    <data name="SkippedRepos" xml:space="preserve">
+        <value>Skipped Repos</value>
+    </data>
+    <data name="NotFoundRepos" xml:space="preserve">
+        <value>Not Found Repos</value>
+    </data>
+    <data name="NoCodeQLDBRepos" xml:space="preserve">
+        <value>No CodeQL DB Repos</value>
+    </data>
+    <data name="OverLimitRepos" xml:space="preserve">
+        <value>Over Limit Repos</value>
+    </data>
+    <data name="WorkflowRunId" xml:space="preserve">
+        <value>Workflow Run ID</value>
+    </data>
+    <data name="TotalRepos" xml:space="preserve">
+        <value>Total Repos</value>
+    </data>
+    <data name="AnalysisDetails" xml:space="preserve">
+        <value>Analysis Details</value>
+    </data>
+    <data name="RepositoryBreakdown" xml:space="preserve">
+        <value>Repository Breakdown</value>
+    </data>
+    <data name="AlertDetails" xml:space="preserve">
+        <value>Alert Details</value>
+    </data>
+    <data name="Close" xml:space="preserve">
+        <value>Close</value>
+    </data>
+    
+</root>

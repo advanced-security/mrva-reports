@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <AssemblyName>MRVA.Reports.WebAssembly</AssemblyName>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
+    <RootNamespace>MRVA.Reports.WebAssembly</RootNamespace>
+    <TargetFramework>net10.0</TargetFramework>
+    <RunAOTCompilation>true</RunAOTCompilation>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.1" PrivateAssets="all" />
+    <PackageReference Include="MudBlazor" Version="8.15.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\ScreenText.resx">
+      <Generator>MSBuild:Compile</Generator>
+      <StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
+      <StronglyTypedClassName>ScreenText</StronglyTypedClassName>
+      <StronglyTypedNamespace>MRVA.Reports.WebAssembly.Properties</StronglyTypedNamespace>
+      <StronglyTypedFileName>Properties\ScreenText.Designer.cs</StronglyTypedFileName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <!--
+    Compress the SQLite database after publish and remove the uncompressed
+    original. The app fetches the .gz file and decompresses client-side via
+    GZipStream, so no server-side Content-Encoding support is needed
+    (works on GitHub Pages, S3, etc.).
+  -->
+  <Target Name="CompressDatabase" AfterTargets="Publish">
+    <PropertyGroup>
+      <_DbPublishPath>$(PublishDir)wwwroot/data/mrva-analysis.db</_DbPublishPath>
+    </PropertyGroup>
+
+    <Exec Command="gzip -9 &quot;$(_DbPublishPath)&quot;" Condition="Exists('$(_DbPublishPath)')" />
+  </Target>
+
+</Project>
