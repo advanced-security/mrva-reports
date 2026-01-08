@@ -37,7 +37,6 @@ jobs:
             -c Release 
             -o release 
             --nologo 
-            /p:RunAOTCompilation=true
 
       - name: Add .nojekyll file
         run: touch release/wwwroot/.nojekyll
