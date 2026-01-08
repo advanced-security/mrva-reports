@@ -8,25 +8,14 @@ namespace MRVA.Reports.Data.Services;
 public class DataStore
 {
     
-    private readonly List<Rule> _ruleList;
+    public IReadOnlySet<Rule> RuleSet { get; }
     
     public DataStore()
     {
         var bytes = ResourceHelper.GetResource("rule.avro");
-        _ruleList = AvroConvert.Deserialize<List<Rule>>(bytes) ?? [];
-    }
-    
-    public IList<Rule> ListRule()
-    {
-        return _ruleList
-            .OrderBy(rule => rule.RuleId)
-            .ToImmutableList();
+        RuleSet = AvroConvert
+            .Deserialize<HashSet<Rule>>(bytes)?
+            .ToImmutableHashSet() ?? ImmutableHashSet<Rule>.Empty;
     }
 
-    public Rule? SingleRule(int rowId)
-    {
-        return _ruleList
-            .FirstOrDefault(rule => rule.RowId == rowId);
-    }
-    
 }

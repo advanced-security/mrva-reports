@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using Microsoft.AspNetCore.Components;
 using MRVA.Reports.Data.Models;
 using MRVA.Reports.Data.Services;
@@ -6,7 +7,7 @@ using MudBlazor;
 
 namespace MRVA.Reports.WebAssembly.Pages.Rules;
 
-public partial class ListPage : ComponentBase
+public partial class ListPage
 {
     
     [Inject]
@@ -41,9 +42,14 @@ public partial class ListPage : ComponentBase
             );
     };
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        RuleList = DataStore.ListRule();
+        base.OnInitializedAsync();
+        
+        RuleList = DataStore
+            .RuleSet
+            .OrderBy(rule => rule.RuleId)
+            .ToImmutableList();
     }
     
     string RowStyleFunc(Rule rule)
