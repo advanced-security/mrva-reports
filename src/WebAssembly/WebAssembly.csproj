@@ -9,6 +9,7 @@
     <RootNamespace>MRVA.Reports.WebAssembly</RootNamespace>
     <TargetFramework>net10.0</TargetFramework>
 <!--    <TrimMode>link</TrimMode>-->
+    <RunAOTCompilation>true</RunAOTCompilation>
   </PropertyGroup>
 
   <ItemGroup>
