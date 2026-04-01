@@ -28,6 +28,10 @@ public partial class ListPage
     [SupplyParameterFromQuery(Name = "hasAlerts")]
     public string? HasAlertsFilter { get; set; }
 
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "status")]
+    public string? StatusFilter { get; set; }
+
     private IList<RepositoryRow>? RepositoryList { get; set; }
     private RepositoryRow? SelectedRepository { get; set; }
 
@@ -41,7 +45,7 @@ public partial class ListPage
             return true;
         }
 
-        if (row.Repository.RepositoryName.Contains(SearchString, StringComparison.OrdinalIgnoreCase))
+        if (row.Repository.RepositoryFullName.Contains(SearchString, StringComparison.OrdinalIgnoreCase))
         {
             return true;
         }
@@ -65,7 +69,7 @@ public partial class ListPage
             .ToDictionary(g => g.Key, g => g.Count());
 
         RepositoryList = DataStore.RepositorySet
-            .OrderBy(r => r.RepositoryName)
+            .OrderBy(r => r.RepositoryFullName)
             .Select(r => new RepositoryRow(
                 r,
                 alertCountsByRepo.TryGetValue(r.RowId, out var count) ? count : 0))
@@ -75,6 +79,8 @@ public partial class ListPage
                 "false" => r.AlertCount == 0,
                 _ => true,
             })
+            .Where(r => string.IsNullOrEmpty(StatusFilter)
+                || r.Repository.AnalysisStatus.Equals(StatusFilter, StringComparison.OrdinalIgnoreCase))
             .ToImmutableList();
 
         PageSize = RepositoryList.Count switch

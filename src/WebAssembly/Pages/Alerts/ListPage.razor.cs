@@ -62,7 +62,7 @@ public partial class ListPage
         var ruleNameMap = DataStore.RuleSet.ToDictionary(r => r.RowId, r => r.Id);
         var ruleKindMap = DataStore.RuleSet.ToDictionary(r => r.RowId, r => r.Kind);
         var ruleSeverityMap = DataStore.RuleSet.ToDictionary(r => r.RowId, r => r.SeverityLevel);
-        var repoNameMap = DataStore.RepositorySet.ToDictionary(r => r.RowId, r => r.RepositoryName);
+        var repoNameMap = DataStore.RepositorySet.ToDictionary(r => r.RowId, r => r.RepositoryFullName);
 
         AlertRows = DataStore.AlertSet
             .OrderBy(a => a.RowId)

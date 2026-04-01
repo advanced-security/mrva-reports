@@ -11,7 +11,7 @@ public class DataStore
     
     public IReadOnlySet<Repository> RepositorySet { get; }
     
-    public IReadOnlySet<Run> RunSet { get; }
+    public IReadOnlySet<Analysis> AnalysisSet { get; }
     
     public IReadOnlySet<Alert> AlertSet { get; }
     
@@ -19,7 +19,7 @@ public class DataStore
     {
         RuleSet = LoadSet("rule.pb", RuleList.Parser, list => list.Rules);
         RepositorySet = LoadSet("repository.pb", RepositoryList.Parser, list => list.Repositories);
-        RunSet = LoadSet("run.pb", RunList.Parser, list => list.Runs);
+        AnalysisSet = LoadSet("analysis.pb", AnalysisList.Parser, list => list.Analyses);
         AlertSet = LoadSet("alert.pb", AlertList.Parser, list => list.Alerts);
     }
     

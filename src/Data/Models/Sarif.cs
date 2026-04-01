@@ -24,46 +24,58 @@ namespace MRVA.Reports.Data.Models {
     static SarifReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Chlwcm90by9zYXJpZnBiL3NhcmlmLnByb3RvEgVzYXJpZiJNCgpSZXBvc2l0",
-            "b3J5Eg4KBnJvd19pZBgBIAEoBRIXCg9yZXBvc2l0b3J5X25hbWUYAiABKAkS",
-            "FgoOcmVwb3NpdG9yeV91cmwYAyABKAkiuwEKA1J1bhIOCgZyb3dfaWQYASAB",
-            "KAUSEQoJdG9vbF9uYW1lGAIgASgJEhkKDHRvb2xfdmVyc2lvbhgDIAEoCUgA",
-            "iAEBEhcKD2FuYWx5c2lzX3Jvd19pZBgEIAEoCRIcCg9jb250cm9sbGVyX3Jl",
-            "cG8YBSABKAlIAYgBARIRCgRkYXRlGAYgASgJSAKIAQFCDwoNX3Rvb2xfdmVy",
-            "c2lvbkISChBfY29udHJvbGxlcl9yZXBvQgcKBV9kYXRlIr4BCgRSdWxlEg4K",
-            "BnJvd19pZBgBIAEoBRIKCgJpZBgCIAEoCRIRCglydWxlX25hbWUYAyABKAkS",
-            "HQoQcnVsZV9kZXNjcmlwdGlvbhgEIAEoCUgAiAEBEhUKDXByb3BlcnR5X3Rh",
-            "Z3MYBSADKAkSDAoEa2luZBgGIAEoCRIbCg5zZXZlcml0eV9sZXZlbBgHIAEo",
-            "CUgBiAEBQhMKEV9ydWxlX2Rlc2NyaXB0aW9uQhEKD19zZXZlcml0eV9sZXZl",
-            "bCLcBAoFQWxlcnQSDgoGcm93X2lkGAEgASgFEhEKCWZpbGVfcGF0aBgCIAEo",
-            "CRIXCgpzdGFydF9saW5lGAMgASgFSACIAQESGQoMc3RhcnRfY29sdW1uGAQg",
-            "ASgFSAGIAQESFQoIZW5kX2xpbmUYBSABKAVIAogBARIXCgplbmRfY29sdW1u",
-            "GAYgASgFSAOIAQESIAoTY29kZV9zbmlwcGV0X3NvdXJjZRgHIAEoCUgEiAEB",
-            "Eh4KEWNvZGVfc25pcHBldF9zaW5rGAggASgJSAWIAQESGQoMY29kZV9zbmlw",
-            "cGV0GAkgASgJSAaIAQESIQoUY29kZV9zbmlwcGV0X2NvbnRleHQYCiABKAlI",
-            "B4gBARIPCgdtZXNzYWdlGAsgASgJEh8KEnJlc3VsdF9maW5nZXJwcmludBgM",
-            "IAEoCUgIiAEBEhcKCnN0ZXBfY291bnQYDSABKAVICYgBARIZChFyZXBvc2l0",
-            "b3J5X3Jvd19pZBgOIAEoBRIXCg9hbmFseXNpc19yb3dfaWQYDyABKAUSEwoL",
-            "cnVsZV9yb3dfaWQYECABKAVCDQoLX3N0YXJ0X2xpbmVCDwoNX3N0YXJ0X2Nv",
-            "bHVtbkILCglfZW5kX2xpbmVCDQoLX2VuZF9jb2x1bW5CFgoUX2NvZGVfc25p",
-            "cHBldF9zb3VyY2VCFAoSX2NvZGVfc25pcHBldF9zaW5rQg8KDV9jb2RlX3Nu",
-            "aXBwZXRCFwoVX2NvZGVfc25pcHBldF9jb250ZXh0QhUKE19yZXN1bHRfZmlu",
-            "Z2VycHJpbnRCDQoLX3N0ZXBfY291bnQiOQoOUmVwb3NpdG9yeUxpc3QSJwoM",
-            "cmVwb3NpdG9yaWVzGAEgAygLMhEuc2FyaWYuUmVwb3NpdG9yeSIjCgdSdW5M",
-            "aXN0EhgKBHJ1bnMYASADKAsyCi5zYXJpZi5SdW4iJgoIUnVsZUxpc3QSGgoF",
-            "cnVsZXMYASADKAsyCy5zYXJpZi5SdWxlIikKCUFsZXJ0TGlzdBIcCgZhbGVy",
-            "dHMYASADKAsyDC5zYXJpZi5BbGVydEJSWjVnaXRodWIuY29tL2doYXMtcHJv",
-            "amVjdHMvc2FyaWYtcHJvdG9idWYvcHJvdG8vc2FyaWZwYqoCGE1SVkEuUmVw",
-            "b3J0cy5EYXRhLk1vZGVsc2IGcHJvdG8z"));
+            "Chlwcm90by9zYXJpZnBiL3NhcmlmLnByb3RvEgVzYXJpZiLsAQoKUmVwb3Np",
+            "dG9yeRIOCgZyb3dfaWQYASABKAUSHAoUcmVwb3NpdG9yeV9mdWxsX25hbWUY",
+            "AiABKAkSFgoOcmVwb3NpdG9yeV91cmwYAyABKAkSFwoPYW5hbHlzaXNfc3Rh",
+            "dHVzGAQgASgJEhkKDHJlc3VsdF9jb3VudBgFIAEoBUgAiAEBEiMKFmFydGlm",
+            "YWN0X3NpemVfaW5fYnl0ZXMYBiABKAVIAYgBARITCgthbmFseXNpc19pZBgH",
+            "IAEoCUIPCg1fcmVzdWx0X2NvdW50QhkKF19hcnRpZmFjdF9zaXplX2luX2J5",
+            "dGVzIroECghBbmFseXNpcxIOCgZyb3dfaWQYASABKAUSEQoJdG9vbF9uYW1l",
+            "GAIgASgJEhkKDHRvb2xfdmVyc2lvbhgDIAEoCUgAiAEBEhMKC2FuYWx5c2lz",
+            "X2lkGAQgASgJEhwKD2NvbnRyb2xsZXJfcmVwbxgFIAEoCUgBiAEBEhEKBGRh",
+            "dGUYBiABKAlIAogBARINCgVzdGF0ZRgHIAEoCRIWCg5xdWVyeV9sYW5ndWFn",
+            "ZRgIIAEoCRISCgpjcmVhdGVkX2F0GAkgASgJEhkKDGNvbXBsZXRlZF9hdBgK",
+            "IAEoCUgDiAEBEg4KBnN0YXR1cxgLIAEoCRIbCg5mYWlsdXJlX3JlYXNvbhgM",
+            "IAEoCUgEiAEBEhsKE3NjYW5uZWRfcmVwb3NfY291bnQYDSABKAUSGwoTc2tp",
+            "cHBlZF9yZXBvc19jb3VudBgOIAEoBRIdChVub3RfZm91bmRfcmVwb3NfY291",
+            "bnQYDyABKAUSIAoYbm9fY29kZXFsX2RiX3JlcG9zX2NvdW50GBAgASgFEh4K",
+            "Fm92ZXJfbGltaXRfcmVwb3NfY291bnQYESABKAUSHwoXYWN0aW9uc193b3Jr",
+            "Zmxvd19ydW5faWQYEiABKAUSGQoRdG90YWxfcmVwb3NfY291bnQYEyABKAVC",
+            "DwoNX3Rvb2xfdmVyc2lvbkISChBfY29udHJvbGxlcl9yZXBvQgcKBV9kYXRl",
+            "Qg8KDV9jb21wbGV0ZWRfYXRCEQoPX2ZhaWx1cmVfcmVhc29uIr4BCgRSdWxl",
+            "Eg4KBnJvd19pZBgBIAEoBRIKCgJpZBgCIAEoCRIRCglydWxlX25hbWUYAyAB",
+            "KAkSHQoQcnVsZV9kZXNjcmlwdGlvbhgEIAEoCUgAiAEBEhUKDXByb3BlcnR5",
+            "X3RhZ3MYBSADKAkSDAoEa2luZBgGIAEoCRIbCg5zZXZlcml0eV9sZXZlbBgH",
+            "IAEoCUgBiAEBQhMKEV9ydWxlX2Rlc2NyaXB0aW9uQhEKD19zZXZlcml0eV9s",
+            "ZXZlbCLcBAoFQWxlcnQSDgoGcm93X2lkGAEgASgFEhEKCWZpbGVfcGF0aBgC",
+            "IAEoCRIXCgpzdGFydF9saW5lGAMgASgFSACIAQESGQoMc3RhcnRfY29sdW1u",
+            "GAQgASgFSAGIAQESFQoIZW5kX2xpbmUYBSABKAVIAogBARIXCgplbmRfY29s",
+            "dW1uGAYgASgFSAOIAQESIAoTY29kZV9zbmlwcGV0X3NvdXJjZRgHIAEoCUgE",
+            "iAEBEh4KEWNvZGVfc25pcHBldF9zaW5rGAggASgJSAWIAQESGQoMY29kZV9z",
+            "bmlwcGV0GAkgASgJSAaIAQESIQoUY29kZV9zbmlwcGV0X2NvbnRleHQYCiAB",
+            "KAlIB4gBARIPCgdtZXNzYWdlGAsgASgJEh8KEnJlc3VsdF9maW5nZXJwcmlu",
+            "dBgMIAEoCUgIiAEBEhcKCnN0ZXBfY291bnQYDSABKAVICYgBARIZChFyZXBv",
+            "c2l0b3J5X3Jvd19pZBgOIAEoBRIXCg9hbmFseXNpc19yb3dfaWQYDyABKAUS",
+            "EwoLcnVsZV9yb3dfaWQYECABKAVCDQoLX3N0YXJ0X2xpbmVCDwoNX3N0YXJ0",
+            "X2NvbHVtbkILCglfZW5kX2xpbmVCDQoLX2VuZF9jb2x1bW5CFgoUX2NvZGVf",
+            "c25pcHBldF9zb3VyY2VCFAoSX2NvZGVfc25pcHBldF9zaW5rQg8KDV9jb2Rl",
+            "X3NuaXBwZXRCFwoVX2NvZGVfc25pcHBldF9jb250ZXh0QhUKE19yZXN1bHRf",
+            "ZmluZ2VycHJpbnRCDQoLX3N0ZXBfY291bnQiOQoOUmVwb3NpdG9yeUxpc3QS",
+            "JwoMcmVwb3NpdG9yaWVzGAEgAygLMhEuc2FyaWYuUmVwb3NpdG9yeSIxCgxB",
+            "bmFseXNpc0xpc3QSIQoIYW5hbHlzZXMYASADKAsyDy5zYXJpZi5BbmFseXNp",
+            "cyImCghSdWxlTGlzdBIaCgVydWxlcxgBIAMoCzILLnNhcmlmLlJ1bGUiKQoJ",
+            "QWxlcnRMaXN0EhwKBmFsZXJ0cxgBIAMoCzIMLnNhcmlmLkFsZXJ0QlJaNWdp",
+            "dGh1Yi5jb20vZ2hhcy1wcm9qZWN0cy9zYXJpZi1wcm90b2J1Zi9wcm90by9z",
+            "YXJpZnBiqgIYTVJWQS5SZXBvcnRzLkRhdGEuTW9kZWxzYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::MRVA.Reports.Data.Models.Repository), global::MRVA.Reports.Data.Models.Repository.Parser, new[]{ "RowId", "RepositoryName", "RepositoryUrl" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::MRVA.Reports.Data.Models.Run), global::MRVA.Reports.Data.Models.Run.Parser, new[]{ "RowId", "ToolName", "ToolVersion", "AnalysisRowId", "ControllerRepo", "Date" }, new[]{ "ToolVersion", "ControllerRepo", "Date" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::MRVA.Reports.Data.Models.Repository), global::MRVA.Reports.Data.Models.Repository.Parser, new[]{ "RowId", "RepositoryFullName", "RepositoryUrl", "AnalysisStatus", "ResultCount", "ArtifactSizeInBytes", "AnalysisId" }, new[]{ "ResultCount", "ArtifactSizeInBytes" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::MRVA.Reports.Data.Models.Analysis), global::MRVA.Reports.Data.Models.Analysis.Parser, new[]{ "RowId", "ToolName", "ToolVersion", "AnalysisId", "ControllerRepo", "Date", "State", "QueryLanguage", "CreatedAt", "CompletedAt", "Status", "FailureReason", "ScannedReposCount", "SkippedReposCount", "NotFoundReposCount", "NoCodeqlDbReposCount", "OverLimitReposCount", "ActionsWorkflowRunId", "TotalReposCount" }, new[]{ "ToolVersion", "ControllerRepo", "Date", "CompletedAt", "FailureReason" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::MRVA.Reports.Data.Models.Rule), global::MRVA.Reports.Data.Models.Rule.Parser, new[]{ "RowId", "Id", "RuleName", "RuleDescription", "PropertyTags", "Kind", "SeverityLevel" }, new[]{ "RuleDescription", "SeverityLevel" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::MRVA.Reports.Data.Models.Alert), global::MRVA.Reports.Data.Models.Alert.Parser, new[]{ "RowId", "FilePath", "StartLine", "StartColumn", "EndLine", "EndColumn", "CodeSnippetSource", "CodeSnippetSink", "CodeSnippet", "CodeSnippetContext", "Message", "ResultFingerprint", "StepCount", "RepositoryRowId", "AnalysisRowId", "RuleRowId" }, new[]{ "StartLine", "StartColumn", "EndLine", "EndColumn", "CodeSnippetSource", "CodeSnippetSink", "CodeSnippet", "CodeSnippetContext", "ResultFingerprint", "StepCount" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::MRVA.Reports.Data.Models.RepositoryList), global::MRVA.Reports.Data.Models.RepositoryList.Parser, new[]{ "Repositories" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::MRVA.Reports.Data.Models.RunList), global::MRVA.Reports.Data.Models.RunList.Parser, new[]{ "Runs" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::MRVA.Reports.Data.Models.AnalysisList), global::MRVA.Reports.Data.Models.AnalysisList.Parser, new[]{ "Analyses" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::MRVA.Reports.Data.Models.RuleList), global::MRVA.Reports.Data.Models.RuleList.Parser, new[]{ "Rules" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::MRVA.Reports.Data.Models.AlertList), global::MRVA.Reports.Data.Models.AlertList.Parser, new[]{ "Alerts" }, null, null, null, null)
           }));
@@ -80,6 +92,7 @@ namespace MRVA.Reports.Data.Models {
   {
     private static readonly pb::MessageParser<Repository> _parser = new pb::MessageParser<Repository>(() => new Repository());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<Repository> Parser { get { return _parser; } }
@@ -107,9 +120,14 @@ namespace MRVA.Reports.Data.Models {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Repository(Repository other) : this() {
+      _hasBits0 = other._hasBits0;
       rowId_ = other.rowId_;
-      repositoryName_ = other.repositoryName_;
+      repositoryFullName_ = other.repositoryFullName_;
       repositoryUrl_ = other.repositoryUrl_;
+      analysisStatus_ = other.analysisStatus_;
+      resultCount_ = other.resultCount_;
+      artifactSizeInBytes_ = other.artifactSizeInBytes_;
+      analysisId_ = other.analysisId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -131,15 +149,15 @@ namespace MRVA.Reports.Data.Models {
       }
     }
 
-    /// <summary>Field number for the "repository_name" field.</summary>
-    public const int RepositoryNameFieldNumber = 2;
-    private string repositoryName_ = "";
+    /// <summary>Field number for the "repository_full_name" field.</summary>
+    public const int RepositoryFullNameFieldNumber = 2;
+    private string repositoryFullName_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string RepositoryName {
-      get { return repositoryName_; }
+    public string RepositoryFullName {
+      get { return repositoryFullName_; }
       set {
-        repositoryName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        repositoryFullName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -152,6 +170,84 @@ namespace MRVA.Reports.Data.Models {
       get { return repositoryUrl_; }
       set {
         repositoryUrl_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "analysis_status" field.</summary>
+    public const int AnalysisStatusFieldNumber = 4;
+    private string analysisStatus_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string AnalysisStatus {
+      get { return analysisStatus_; }
+      set {
+        analysisStatus_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "result_count" field.</summary>
+    public const int ResultCountFieldNumber = 5;
+    private readonly static int ResultCountDefaultValue = 0;
+
+    private int resultCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int ResultCount {
+      get { if ((_hasBits0 & 1) != 0) { return resultCount_; } else { return ResultCountDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        resultCount_ = value;
+      }
+    }
+    /// <summary>Gets whether the "result_count" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasResultCount {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "result_count" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearResultCount() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "artifact_size_in_bytes" field.</summary>
+    public const int ArtifactSizeInBytesFieldNumber = 6;
+    private readonly static int ArtifactSizeInBytesDefaultValue = 0;
+
+    private int artifactSizeInBytes_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int ArtifactSizeInBytes {
+      get { if ((_hasBits0 & 2) != 0) { return artifactSizeInBytes_; } else { return ArtifactSizeInBytesDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        artifactSizeInBytes_ = value;
+      }
+    }
+    /// <summary>Gets whether the "artifact_size_in_bytes" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasArtifactSizeInBytes {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "artifact_size_in_bytes" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearArtifactSizeInBytes() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "analysis_id" field.</summary>
+    public const int AnalysisIdFieldNumber = 7;
+    private string analysisId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string AnalysisId {
+      get { return analysisId_; }
+      set {
+        analysisId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -171,8 +267,12 @@ namespace MRVA.Reports.Data.Models {
         return true;
       }
       if (RowId != other.RowId) return false;
-      if (RepositoryName != other.RepositoryName) return false;
+      if (RepositoryFullName != other.RepositoryFullName) return false;
       if (RepositoryUrl != other.RepositoryUrl) return false;
+      if (AnalysisStatus != other.AnalysisStatus) return false;
+      if (ResultCount != other.ResultCount) return false;
+      if (ArtifactSizeInBytes != other.ArtifactSizeInBytes) return false;
+      if (AnalysisId != other.AnalysisId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -181,8 +281,12 @@ namespace MRVA.Reports.Data.Models {
     public override int GetHashCode() {
       int hash = 1;
       if (RowId != 0) hash ^= RowId.GetHashCode();
-      if (RepositoryName.Length != 0) hash ^= RepositoryName.GetHashCode();
+      if (RepositoryFullName.Length != 0) hash ^= RepositoryFullName.GetHashCode();
       if (RepositoryUrl.Length != 0) hash ^= RepositoryUrl.GetHashCode();
+      if (AnalysisStatus.Length != 0) hash ^= AnalysisStatus.GetHashCode();
+      if (HasResultCount) hash ^= ResultCount.GetHashCode();
+      if (HasArtifactSizeInBytes) hash ^= ArtifactSizeInBytes.GetHashCode();
+      if (AnalysisId.Length != 0) hash ^= AnalysisId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -205,13 +309,29 @@ namespace MRVA.Reports.Data.Models {
         output.WriteRawTag(8);
         output.WriteInt32(RowId);
       }
-      if (RepositoryName.Length != 0) {
+      if (RepositoryFullName.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(RepositoryName);
+        output.WriteString(RepositoryFullName);
       }
       if (RepositoryUrl.Length != 0) {
         output.WriteRawTag(26);
         output.WriteString(RepositoryUrl);
+      }
+      if (AnalysisStatus.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(AnalysisStatus);
+      }
+      if (HasResultCount) {
+        output.WriteRawTag(40);
+        output.WriteInt32(ResultCount);
+      }
+      if (HasArtifactSizeInBytes) {
+        output.WriteRawTag(48);
+        output.WriteInt32(ArtifactSizeInBytes);
+      }
+      if (AnalysisId.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(AnalysisId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -227,13 +347,29 @@ namespace MRVA.Reports.Data.Models {
         output.WriteRawTag(8);
         output.WriteInt32(RowId);
       }
-      if (RepositoryName.Length != 0) {
+      if (RepositoryFullName.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(RepositoryName);
+        output.WriteString(RepositoryFullName);
       }
       if (RepositoryUrl.Length != 0) {
         output.WriteRawTag(26);
         output.WriteString(RepositoryUrl);
+      }
+      if (AnalysisStatus.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(AnalysisStatus);
+      }
+      if (HasResultCount) {
+        output.WriteRawTag(40);
+        output.WriteInt32(ResultCount);
+      }
+      if (HasArtifactSizeInBytes) {
+        output.WriteRawTag(48);
+        output.WriteInt32(ArtifactSizeInBytes);
+      }
+      if (AnalysisId.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(AnalysisId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -248,11 +384,23 @@ namespace MRVA.Reports.Data.Models {
       if (RowId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(RowId);
       }
-      if (RepositoryName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(RepositoryName);
+      if (RepositoryFullName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RepositoryFullName);
       }
       if (RepositoryUrl.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(RepositoryUrl);
+      }
+      if (AnalysisStatus.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AnalysisStatus);
+      }
+      if (HasResultCount) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ResultCount);
+      }
+      if (HasArtifactSizeInBytes) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ArtifactSizeInBytes);
+      }
+      if (AnalysisId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AnalysisId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -269,11 +417,23 @@ namespace MRVA.Reports.Data.Models {
       if (other.RowId != 0) {
         RowId = other.RowId;
       }
-      if (other.RepositoryName.Length != 0) {
-        RepositoryName = other.RepositoryName;
+      if (other.RepositoryFullName.Length != 0) {
+        RepositoryFullName = other.RepositoryFullName;
       }
       if (other.RepositoryUrl.Length != 0) {
         RepositoryUrl = other.RepositoryUrl;
+      }
+      if (other.AnalysisStatus.Length != 0) {
+        AnalysisStatus = other.AnalysisStatus;
+      }
+      if (other.HasResultCount) {
+        ResultCount = other.ResultCount;
+      }
+      if (other.HasArtifactSizeInBytes) {
+        ArtifactSizeInBytes = other.ArtifactSizeInBytes;
+      }
+      if (other.AnalysisId.Length != 0) {
+        AnalysisId = other.AnalysisId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -299,11 +459,27 @@ namespace MRVA.Reports.Data.Models {
             break;
           }
           case 18: {
-            RepositoryName = input.ReadString();
+            RepositoryFullName = input.ReadString();
             break;
           }
           case 26: {
             RepositoryUrl = input.ReadString();
+            break;
+          }
+          case 34: {
+            AnalysisStatus = input.ReadString();
+            break;
+          }
+          case 40: {
+            ResultCount = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            ArtifactSizeInBytes = input.ReadInt32();
+            break;
+          }
+          case 58: {
+            AnalysisId = input.ReadString();
             break;
           }
         }
@@ -330,11 +506,27 @@ namespace MRVA.Reports.Data.Models {
             break;
           }
           case 18: {
-            RepositoryName = input.ReadString();
+            RepositoryFullName = input.ReadString();
             break;
           }
           case 26: {
             RepositoryUrl = input.ReadString();
+            break;
+          }
+          case 34: {
+            AnalysisStatus = input.ReadString();
+            break;
+          }
+          case 40: {
+            ResultCount = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            ArtifactSizeInBytes = input.ReadInt32();
+            break;
+          }
+          case 58: {
+            AnalysisId = input.ReadString();
             break;
           }
         }
@@ -345,16 +537,16 @@ namespace MRVA.Reports.Data.Models {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class Run : pb::IMessage<Run>
+  public sealed partial class Analysis : pb::IMessage<Analysis>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<Run> _parser = new pb::MessageParser<Run>(() => new Run());
+    private static readonly pb::MessageParser<Analysis> _parser = new pb::MessageParser<Analysis>(() => new Analysis());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<Run> Parser { get { return _parser; } }
+    public static pb::MessageParser<Analysis> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -370,7 +562,7 @@ namespace MRVA.Reports.Data.Models {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Run() {
+    public Analysis() {
       OnConstruction();
     }
 
@@ -378,20 +570,33 @@ namespace MRVA.Reports.Data.Models {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Run(Run other) : this() {
+    public Analysis(Analysis other) : this() {
       rowId_ = other.rowId_;
       toolName_ = other.toolName_;
       toolVersion_ = other.toolVersion_;
-      analysisRowId_ = other.analysisRowId_;
+      analysisId_ = other.analysisId_;
       controllerRepo_ = other.controllerRepo_;
       date_ = other.date_;
+      state_ = other.state_;
+      queryLanguage_ = other.queryLanguage_;
+      createdAt_ = other.createdAt_;
+      completedAt_ = other.completedAt_;
+      status_ = other.status_;
+      failureReason_ = other.failureReason_;
+      scannedReposCount_ = other.scannedReposCount_;
+      skippedReposCount_ = other.skippedReposCount_;
+      notFoundReposCount_ = other.notFoundReposCount_;
+      noCodeqlDbReposCount_ = other.noCodeqlDbReposCount_;
+      overLimitReposCount_ = other.overLimitReposCount_;
+      actionsWorkflowRunId_ = other.actionsWorkflowRunId_;
+      totalReposCount_ = other.totalReposCount_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Run Clone() {
-      return new Run(this);
+    public Analysis Clone() {
+      return new Analysis(this);
     }
 
     /// <summary>Field number for the "row_id" field.</summary>
@@ -444,15 +649,15 @@ namespace MRVA.Reports.Data.Models {
       toolVersion_ = null;
     }
 
-    /// <summary>Field number for the "analysis_row_id" field.</summary>
-    public const int AnalysisRowIdFieldNumber = 4;
-    private string analysisRowId_ = "";
+    /// <summary>Field number for the "analysis_id" field.</summary>
+    public const int AnalysisIdFieldNumber = 4;
+    private string analysisId_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string AnalysisRowId {
-      get { return analysisRowId_; }
+    public string AnalysisId {
+      get { return analysisId_; }
       set {
-        analysisRowId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        analysisId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -508,15 +713,199 @@ namespace MRVA.Reports.Data.Models {
       date_ = null;
     }
 
+    /// <summary>Field number for the "state" field.</summary>
+    public const int StateFieldNumber = 7;
+    private string state_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as Run);
+    public string State {
+      get { return state_; }
+      set {
+        state_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "query_language" field.</summary>
+    public const int QueryLanguageFieldNumber = 8;
+    private string queryLanguage_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string QueryLanguage {
+      get { return queryLanguage_; }
+      set {
+        queryLanguage_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "created_at" field.</summary>
+    public const int CreatedAtFieldNumber = 9;
+    private string createdAt_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string CreatedAt {
+      get { return createdAt_; }
+      set {
+        createdAt_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "completed_at" field.</summary>
+    public const int CompletedAtFieldNumber = 10;
+    private readonly static string CompletedAtDefaultValue = "";
+
+    private string completedAt_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string CompletedAt {
+      get { return completedAt_ ?? CompletedAtDefaultValue; }
+      set {
+        completedAt_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "completed_at" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasCompletedAt {
+      get { return completedAt_ != null; }
+    }
+    /// <summary>Clears the value of the "completed_at" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearCompletedAt() {
+      completedAt_ = null;
+    }
+
+    /// <summary>Field number for the "status" field.</summary>
+    public const int StatusFieldNumber = 11;
+    private string status_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Status {
+      get { return status_; }
+      set {
+        status_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "failure_reason" field.</summary>
+    public const int FailureReasonFieldNumber = 12;
+    private readonly static string FailureReasonDefaultValue = "";
+
+    private string failureReason_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string FailureReason {
+      get { return failureReason_ ?? FailureReasonDefaultValue; }
+      set {
+        failureReason_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "failure_reason" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasFailureReason {
+      get { return failureReason_ != null; }
+    }
+    /// <summary>Clears the value of the "failure_reason" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearFailureReason() {
+      failureReason_ = null;
+    }
+
+    /// <summary>Field number for the "scanned_repos_count" field.</summary>
+    public const int ScannedReposCountFieldNumber = 13;
+    private int scannedReposCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int ScannedReposCount {
+      get { return scannedReposCount_; }
+      set {
+        scannedReposCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "skipped_repos_count" field.</summary>
+    public const int SkippedReposCountFieldNumber = 14;
+    private int skippedReposCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int SkippedReposCount {
+      get { return skippedReposCount_; }
+      set {
+        skippedReposCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "not_found_repos_count" field.</summary>
+    public const int NotFoundReposCountFieldNumber = 15;
+    private int notFoundReposCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int NotFoundReposCount {
+      get { return notFoundReposCount_; }
+      set {
+        notFoundReposCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "no_codeql_db_repos_count" field.</summary>
+    public const int NoCodeqlDbReposCountFieldNumber = 16;
+    private int noCodeqlDbReposCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int NoCodeqlDbReposCount {
+      get { return noCodeqlDbReposCount_; }
+      set {
+        noCodeqlDbReposCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "over_limit_repos_count" field.</summary>
+    public const int OverLimitReposCountFieldNumber = 17;
+    private int overLimitReposCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int OverLimitReposCount {
+      get { return overLimitReposCount_; }
+      set {
+        overLimitReposCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "actions_workflow_run_id" field.</summary>
+    public const int ActionsWorkflowRunIdFieldNumber = 18;
+    private int actionsWorkflowRunId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int ActionsWorkflowRunId {
+      get { return actionsWorkflowRunId_; }
+      set {
+        actionsWorkflowRunId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "total_repos_count" field.</summary>
+    public const int TotalReposCountFieldNumber = 19;
+    private int totalReposCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int TotalReposCount {
+      get { return totalReposCount_; }
+      set {
+        totalReposCount_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(Run other) {
+    public override bool Equals(object other) {
+      return Equals(other as Analysis);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(Analysis other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -526,9 +915,22 @@ namespace MRVA.Reports.Data.Models {
       if (RowId != other.RowId) return false;
       if (ToolName != other.ToolName) return false;
       if (ToolVersion != other.ToolVersion) return false;
-      if (AnalysisRowId != other.AnalysisRowId) return false;
+      if (AnalysisId != other.AnalysisId) return false;
       if (ControllerRepo != other.ControllerRepo) return false;
       if (Date != other.Date) return false;
+      if (State != other.State) return false;
+      if (QueryLanguage != other.QueryLanguage) return false;
+      if (CreatedAt != other.CreatedAt) return false;
+      if (CompletedAt != other.CompletedAt) return false;
+      if (Status != other.Status) return false;
+      if (FailureReason != other.FailureReason) return false;
+      if (ScannedReposCount != other.ScannedReposCount) return false;
+      if (SkippedReposCount != other.SkippedReposCount) return false;
+      if (NotFoundReposCount != other.NotFoundReposCount) return false;
+      if (NoCodeqlDbReposCount != other.NoCodeqlDbReposCount) return false;
+      if (OverLimitReposCount != other.OverLimitReposCount) return false;
+      if (ActionsWorkflowRunId != other.ActionsWorkflowRunId) return false;
+      if (TotalReposCount != other.TotalReposCount) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -539,9 +941,22 @@ namespace MRVA.Reports.Data.Models {
       if (RowId != 0) hash ^= RowId.GetHashCode();
       if (ToolName.Length != 0) hash ^= ToolName.GetHashCode();
       if (HasToolVersion) hash ^= ToolVersion.GetHashCode();
-      if (AnalysisRowId.Length != 0) hash ^= AnalysisRowId.GetHashCode();
+      if (AnalysisId.Length != 0) hash ^= AnalysisId.GetHashCode();
       if (HasControllerRepo) hash ^= ControllerRepo.GetHashCode();
       if (HasDate) hash ^= Date.GetHashCode();
+      if (State.Length != 0) hash ^= State.GetHashCode();
+      if (QueryLanguage.Length != 0) hash ^= QueryLanguage.GetHashCode();
+      if (CreatedAt.Length != 0) hash ^= CreatedAt.GetHashCode();
+      if (HasCompletedAt) hash ^= CompletedAt.GetHashCode();
+      if (Status.Length != 0) hash ^= Status.GetHashCode();
+      if (HasFailureReason) hash ^= FailureReason.GetHashCode();
+      if (ScannedReposCount != 0) hash ^= ScannedReposCount.GetHashCode();
+      if (SkippedReposCount != 0) hash ^= SkippedReposCount.GetHashCode();
+      if (NotFoundReposCount != 0) hash ^= NotFoundReposCount.GetHashCode();
+      if (NoCodeqlDbReposCount != 0) hash ^= NoCodeqlDbReposCount.GetHashCode();
+      if (OverLimitReposCount != 0) hash ^= OverLimitReposCount.GetHashCode();
+      if (ActionsWorkflowRunId != 0) hash ^= ActionsWorkflowRunId.GetHashCode();
+      if (TotalReposCount != 0) hash ^= TotalReposCount.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -572,9 +987,9 @@ namespace MRVA.Reports.Data.Models {
         output.WriteRawTag(26);
         output.WriteString(ToolVersion);
       }
-      if (AnalysisRowId.Length != 0) {
+      if (AnalysisId.Length != 0) {
         output.WriteRawTag(34);
-        output.WriteString(AnalysisRowId);
+        output.WriteString(AnalysisId);
       }
       if (HasControllerRepo) {
         output.WriteRawTag(42);
@@ -583,6 +998,58 @@ namespace MRVA.Reports.Data.Models {
       if (HasDate) {
         output.WriteRawTag(50);
         output.WriteString(Date);
+      }
+      if (State.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(State);
+      }
+      if (QueryLanguage.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(QueryLanguage);
+      }
+      if (CreatedAt.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(CreatedAt);
+      }
+      if (HasCompletedAt) {
+        output.WriteRawTag(82);
+        output.WriteString(CompletedAt);
+      }
+      if (Status.Length != 0) {
+        output.WriteRawTag(90);
+        output.WriteString(Status);
+      }
+      if (HasFailureReason) {
+        output.WriteRawTag(98);
+        output.WriteString(FailureReason);
+      }
+      if (ScannedReposCount != 0) {
+        output.WriteRawTag(104);
+        output.WriteInt32(ScannedReposCount);
+      }
+      if (SkippedReposCount != 0) {
+        output.WriteRawTag(112);
+        output.WriteInt32(SkippedReposCount);
+      }
+      if (NotFoundReposCount != 0) {
+        output.WriteRawTag(120);
+        output.WriteInt32(NotFoundReposCount);
+      }
+      if (NoCodeqlDbReposCount != 0) {
+        output.WriteRawTag(128, 1);
+        output.WriteInt32(NoCodeqlDbReposCount);
+      }
+      if (OverLimitReposCount != 0) {
+        output.WriteRawTag(136, 1);
+        output.WriteInt32(OverLimitReposCount);
+      }
+      if (ActionsWorkflowRunId != 0) {
+        output.WriteRawTag(144, 1);
+        output.WriteInt32(ActionsWorkflowRunId);
+      }
+      if (TotalReposCount != 0) {
+        output.WriteRawTag(152, 1);
+        output.WriteInt32(TotalReposCount);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -606,9 +1073,9 @@ namespace MRVA.Reports.Data.Models {
         output.WriteRawTag(26);
         output.WriteString(ToolVersion);
       }
-      if (AnalysisRowId.Length != 0) {
+      if (AnalysisId.Length != 0) {
         output.WriteRawTag(34);
-        output.WriteString(AnalysisRowId);
+        output.WriteString(AnalysisId);
       }
       if (HasControllerRepo) {
         output.WriteRawTag(42);
@@ -617,6 +1084,58 @@ namespace MRVA.Reports.Data.Models {
       if (HasDate) {
         output.WriteRawTag(50);
         output.WriteString(Date);
+      }
+      if (State.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(State);
+      }
+      if (QueryLanguage.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(QueryLanguage);
+      }
+      if (CreatedAt.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(CreatedAt);
+      }
+      if (HasCompletedAt) {
+        output.WriteRawTag(82);
+        output.WriteString(CompletedAt);
+      }
+      if (Status.Length != 0) {
+        output.WriteRawTag(90);
+        output.WriteString(Status);
+      }
+      if (HasFailureReason) {
+        output.WriteRawTag(98);
+        output.WriteString(FailureReason);
+      }
+      if (ScannedReposCount != 0) {
+        output.WriteRawTag(104);
+        output.WriteInt32(ScannedReposCount);
+      }
+      if (SkippedReposCount != 0) {
+        output.WriteRawTag(112);
+        output.WriteInt32(SkippedReposCount);
+      }
+      if (NotFoundReposCount != 0) {
+        output.WriteRawTag(120);
+        output.WriteInt32(NotFoundReposCount);
+      }
+      if (NoCodeqlDbReposCount != 0) {
+        output.WriteRawTag(128, 1);
+        output.WriteInt32(NoCodeqlDbReposCount);
+      }
+      if (OverLimitReposCount != 0) {
+        output.WriteRawTag(136, 1);
+        output.WriteInt32(OverLimitReposCount);
+      }
+      if (ActionsWorkflowRunId != 0) {
+        output.WriteRawTag(144, 1);
+        output.WriteInt32(ActionsWorkflowRunId);
+      }
+      if (TotalReposCount != 0) {
+        output.WriteRawTag(152, 1);
+        output.WriteInt32(TotalReposCount);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -637,14 +1156,53 @@ namespace MRVA.Reports.Data.Models {
       if (HasToolVersion) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ToolVersion);
       }
-      if (AnalysisRowId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(AnalysisRowId);
+      if (AnalysisId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AnalysisId);
       }
       if (HasControllerRepo) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ControllerRepo);
       }
       if (HasDate) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Date);
+      }
+      if (State.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(State);
+      }
+      if (QueryLanguage.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(QueryLanguage);
+      }
+      if (CreatedAt.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CreatedAt);
+      }
+      if (HasCompletedAt) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CompletedAt);
+      }
+      if (Status.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Status);
+      }
+      if (HasFailureReason) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(FailureReason);
+      }
+      if (ScannedReposCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ScannedReposCount);
+      }
+      if (SkippedReposCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SkippedReposCount);
+      }
+      if (NotFoundReposCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NotFoundReposCount);
+      }
+      if (NoCodeqlDbReposCount != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(NoCodeqlDbReposCount);
+      }
+      if (OverLimitReposCount != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(OverLimitReposCount);
+      }
+      if (ActionsWorkflowRunId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(ActionsWorkflowRunId);
+      }
+      if (TotalReposCount != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(TotalReposCount);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -654,7 +1212,7 @@ namespace MRVA.Reports.Data.Models {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(Run other) {
+    public void MergeFrom(Analysis other) {
       if (other == null) {
         return;
       }
@@ -667,14 +1225,53 @@ namespace MRVA.Reports.Data.Models {
       if (other.HasToolVersion) {
         ToolVersion = other.ToolVersion;
       }
-      if (other.AnalysisRowId.Length != 0) {
-        AnalysisRowId = other.AnalysisRowId;
+      if (other.AnalysisId.Length != 0) {
+        AnalysisId = other.AnalysisId;
       }
       if (other.HasControllerRepo) {
         ControllerRepo = other.ControllerRepo;
       }
       if (other.HasDate) {
         Date = other.Date;
+      }
+      if (other.State.Length != 0) {
+        State = other.State;
+      }
+      if (other.QueryLanguage.Length != 0) {
+        QueryLanguage = other.QueryLanguage;
+      }
+      if (other.CreatedAt.Length != 0) {
+        CreatedAt = other.CreatedAt;
+      }
+      if (other.HasCompletedAt) {
+        CompletedAt = other.CompletedAt;
+      }
+      if (other.Status.Length != 0) {
+        Status = other.Status;
+      }
+      if (other.HasFailureReason) {
+        FailureReason = other.FailureReason;
+      }
+      if (other.ScannedReposCount != 0) {
+        ScannedReposCount = other.ScannedReposCount;
+      }
+      if (other.SkippedReposCount != 0) {
+        SkippedReposCount = other.SkippedReposCount;
+      }
+      if (other.NotFoundReposCount != 0) {
+        NotFoundReposCount = other.NotFoundReposCount;
+      }
+      if (other.NoCodeqlDbReposCount != 0) {
+        NoCodeqlDbReposCount = other.NoCodeqlDbReposCount;
+      }
+      if (other.OverLimitReposCount != 0) {
+        OverLimitReposCount = other.OverLimitReposCount;
+      }
+      if (other.ActionsWorkflowRunId != 0) {
+        ActionsWorkflowRunId = other.ActionsWorkflowRunId;
+      }
+      if (other.TotalReposCount != 0) {
+        TotalReposCount = other.TotalReposCount;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -708,7 +1305,7 @@ namespace MRVA.Reports.Data.Models {
             break;
           }
           case 34: {
-            AnalysisRowId = input.ReadString();
+            AnalysisId = input.ReadString();
             break;
           }
           case 42: {
@@ -717,6 +1314,58 @@ namespace MRVA.Reports.Data.Models {
           }
           case 50: {
             Date = input.ReadString();
+            break;
+          }
+          case 58: {
+            State = input.ReadString();
+            break;
+          }
+          case 66: {
+            QueryLanguage = input.ReadString();
+            break;
+          }
+          case 74: {
+            CreatedAt = input.ReadString();
+            break;
+          }
+          case 82: {
+            CompletedAt = input.ReadString();
+            break;
+          }
+          case 90: {
+            Status = input.ReadString();
+            break;
+          }
+          case 98: {
+            FailureReason = input.ReadString();
+            break;
+          }
+          case 104: {
+            ScannedReposCount = input.ReadInt32();
+            break;
+          }
+          case 112: {
+            SkippedReposCount = input.ReadInt32();
+            break;
+          }
+          case 120: {
+            NotFoundReposCount = input.ReadInt32();
+            break;
+          }
+          case 128: {
+            NoCodeqlDbReposCount = input.ReadInt32();
+            break;
+          }
+          case 136: {
+            OverLimitReposCount = input.ReadInt32();
+            break;
+          }
+          case 144: {
+            ActionsWorkflowRunId = input.ReadInt32();
+            break;
+          }
+          case 152: {
+            TotalReposCount = input.ReadInt32();
             break;
           }
         }
@@ -751,7 +1400,7 @@ namespace MRVA.Reports.Data.Models {
             break;
           }
           case 34: {
-            AnalysisRowId = input.ReadString();
+            AnalysisId = input.ReadString();
             break;
           }
           case 42: {
@@ -760,6 +1409,58 @@ namespace MRVA.Reports.Data.Models {
           }
           case 50: {
             Date = input.ReadString();
+            break;
+          }
+          case 58: {
+            State = input.ReadString();
+            break;
+          }
+          case 66: {
+            QueryLanguage = input.ReadString();
+            break;
+          }
+          case 74: {
+            CreatedAt = input.ReadString();
+            break;
+          }
+          case 82: {
+            CompletedAt = input.ReadString();
+            break;
+          }
+          case 90: {
+            Status = input.ReadString();
+            break;
+          }
+          case 98: {
+            FailureReason = input.ReadString();
+            break;
+          }
+          case 104: {
+            ScannedReposCount = input.ReadInt32();
+            break;
+          }
+          case 112: {
+            SkippedReposCount = input.ReadInt32();
+            break;
+          }
+          case 120: {
+            NotFoundReposCount = input.ReadInt32();
+            break;
+          }
+          case 128: {
+            NoCodeqlDbReposCount = input.ReadInt32();
+            break;
+          }
+          case 136: {
+            OverLimitReposCount = input.ReadInt32();
+            break;
+          }
+          case 144: {
+            ActionsWorkflowRunId = input.ReadInt32();
+            break;
+          }
+          case 152: {
+            TotalReposCount = input.ReadInt32();
             break;
           }
         }
@@ -2297,16 +2998,16 @@ namespace MRVA.Reports.Data.Models {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class RunList : pb::IMessage<RunList>
+  public sealed partial class AnalysisList : pb::IMessage<AnalysisList>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<RunList> _parser = new pb::MessageParser<RunList>(() => new RunList());
+    private static readonly pb::MessageParser<AnalysisList> _parser = new pb::MessageParser<AnalysisList>(() => new AnalysisList());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<RunList> Parser { get { return _parser; } }
+    public static pb::MessageParser<AnalysisList> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2322,7 +3023,7 @@ namespace MRVA.Reports.Data.Models {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public RunList() {
+    public AnalysisList() {
       OnConstruction();
     }
 
@@ -2330,44 +3031,44 @@ namespace MRVA.Reports.Data.Models {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public RunList(RunList other) : this() {
-      runs_ = other.runs_.Clone();
+    public AnalysisList(AnalysisList other) : this() {
+      analyses_ = other.analyses_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public RunList Clone() {
-      return new RunList(this);
+    public AnalysisList Clone() {
+      return new AnalysisList(this);
     }
 
-    /// <summary>Field number for the "runs" field.</summary>
-    public const int RunsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::MRVA.Reports.Data.Models.Run> _repeated_runs_codec
-        = pb::FieldCodec.ForMessage(10, global::MRVA.Reports.Data.Models.Run.Parser);
-    private readonly pbc::RepeatedField<global::MRVA.Reports.Data.Models.Run> runs_ = new pbc::RepeatedField<global::MRVA.Reports.Data.Models.Run>();
+    /// <summary>Field number for the "analyses" field.</summary>
+    public const int AnalysesFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::MRVA.Reports.Data.Models.Analysis> _repeated_analyses_codec
+        = pb::FieldCodec.ForMessage(10, global::MRVA.Reports.Data.Models.Analysis.Parser);
+    private readonly pbc::RepeatedField<global::MRVA.Reports.Data.Models.Analysis> analyses_ = new pbc::RepeatedField<global::MRVA.Reports.Data.Models.Analysis>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::MRVA.Reports.Data.Models.Run> Runs {
-      get { return runs_; }
+    public pbc::RepeatedField<global::MRVA.Reports.Data.Models.Analysis> Analyses {
+      get { return analyses_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as RunList);
+      return Equals(other as AnalysisList);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(RunList other) {
+    public bool Equals(AnalysisList other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!runs_.Equals(other.runs_)) return false;
+      if(!analyses_.Equals(other.analyses_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2375,7 +3076,7 @@ namespace MRVA.Reports.Data.Models {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= runs_.GetHashCode();
+      hash ^= analyses_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2394,7 +3095,7 @@ namespace MRVA.Reports.Data.Models {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      runs_.WriteTo(output, _repeated_runs_codec);
+      analyses_.WriteTo(output, _repeated_analyses_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2405,7 +3106,7 @@ namespace MRVA.Reports.Data.Models {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      runs_.WriteTo(ref output, _repeated_runs_codec);
+      analyses_.WriteTo(ref output, _repeated_analyses_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2416,7 +3117,7 @@ namespace MRVA.Reports.Data.Models {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += runs_.CalculateSize(_repeated_runs_codec);
+      size += analyses_.CalculateSize(_repeated_analyses_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2425,11 +3126,11 @@ namespace MRVA.Reports.Data.Models {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(RunList other) {
+    public void MergeFrom(AnalysisList other) {
       if (other == null) {
         return;
       }
-      runs_.Add(other.runs_);
+      analyses_.Add(other.analyses_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2450,7 +3151,7 @@ namespace MRVA.Reports.Data.Models {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            runs_.AddEntriesFrom(input, _repeated_runs_codec);
+            analyses_.AddEntriesFrom(input, _repeated_analyses_codec);
             break;
           }
         }
@@ -2473,7 +3174,7 @@ namespace MRVA.Reports.Data.Models {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            runs_.AddEntriesFrom(ref input, _repeated_runs_codec);
+            analyses_.AddEntriesFrom(ref input, _repeated_analyses_codec);
             break;
           }
         }

@@ -85,11 +85,47 @@ namespace MRVA.Reports.WebAssembly.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        internal static string AnalysisDate {
+            get {
+                return ResourceManager.GetString("AnalysisDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Analysis Details.
+        /// </summary>
+        internal static string AnalysisDetails {
+            get {
+                return ResourceManager.GetString("AnalysisDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completed.
+        /// </summary>
+        internal static string Completed {
+            get {
+                return ResourceManager.GetString("Completed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Context.
         /// </summary>
         internal static string Context {
             get {
                 return ResourceManager.GetString("Context", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Controller Repo.
+        /// </summary>
+        internal static string ControllerRepo {
+            get {
+                return ResourceManager.GetString("ControllerRepo", resourceCulture);
             }
         }
         
@@ -126,6 +162,15 @@ namespace MRVA.Reports.WebAssembly.Properties {
         internal static string EndLine {
             get {
                 return ResourceManager.GetString("EndLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failure Reason.
+        /// </summary>
+        internal static string FailureReason {
+            get {
+                return ResourceManager.GetString("FailureReason", resourceCulture);
             }
         }
         
@@ -193,6 +238,15 @@ namespace MRVA.Reports.WebAssembly.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No CodeQL DB Repos.
+        /// </summary>
+        internal static string NoCodeQLDBRepos {
+            get {
+                return ResourceManager.GetString("NoCodeQLDBRepos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not found.
         /// </summary>
         internal static string NotFound {
@@ -211,11 +265,38 @@ namespace MRVA.Reports.WebAssembly.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not Found Repos.
+        /// </summary>
+        internal static string NotFoundRepos {
+            get {
+                return ResourceManager.GetString("NotFoundRepos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Over Limit Repos.
+        /// </summary>
+        internal static string OverLimitRepos {
+            get {
+                return ResourceManager.GetString("OverLimitRepos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Property Tags.
         /// </summary>
         internal static string PropertyTags {
             get {
                 return ResourceManager.GetString("PropertyTags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Query Language.
+        /// </summary>
+        internal static string QueryLanguage {
+            get {
+                return ResourceManager.GetString("QueryLanguage", resourceCulture);
             }
         }
         
@@ -256,6 +337,15 @@ namespace MRVA.Reports.WebAssembly.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Repository Breakdown.
+        /// </summary>
+        internal static string RepositoryBreakdown {
+            get {
+                return ResourceManager.GetString("RepositoryBreakdown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Result Fingerprint.
         /// </summary>
         internal static string ResultFingerprint {
@@ -288,6 +378,15 @@ namespace MRVA.Reports.WebAssembly.Properties {
         internal static string Rules {
             get {
                 return ResourceManager.GetString("Rules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scanned Repos.
+        /// </summary>
+        internal static string ScannedRepos {
+            get {
+                return ResourceManager.GetString("ScannedRepos", resourceCulture);
             }
         }
         
@@ -328,6 +427,15 @@ namespace MRVA.Reports.WebAssembly.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Skipped Repos.
+        /// </summary>
+        internal static string SkippedRepos {
+            get {
+                return ResourceManager.GetString("SkippedRepos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Snippet.
         /// </summary>
         internal static string Snippet {
@@ -355,11 +463,38 @@ namespace MRVA.Reports.WebAssembly.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Started.
+        /// </summary>
+        internal static string Started {
+            get {
+                return ResourceManager.GetString("Started", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start Line.
         /// </summary>
         internal static string StartLine {
             get {
                 return ResourceManager.GetString("StartLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to State.
+        /// </summary>
+        internal static string State {
+            get {
+                return ResourceManager.GetString("State", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        internal static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
             }
         }
         
@@ -378,6 +513,24 @@ namespace MRVA.Reports.WebAssembly.Properties {
         internal static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool.
+        /// </summary>
+        internal static string ToolName {
+            get {
+                return ResourceManager.GetString("ToolName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool Version.
+        /// </summary>
+        internal static string ToolVersion {
+            get {
+                return ResourceManager.GetString("ToolVersion", resourceCulture);
             }
         }
         
@@ -405,6 +558,15 @@ namespace MRVA.Reports.WebAssembly.Properties {
         internal static string TotalAlerts {
             get {
                 return ResourceManager.GetString("TotalAlerts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Repos.
+        /// </summary>
+        internal static string TotalRepos {
+            get {
+                return ResourceManager.GetString("TotalRepos", resourceCulture);
             }
         }
         
@@ -459,6 +621,15 @@ namespace MRVA.Reports.WebAssembly.Properties {
         internal static string WithoutAlerts {
             get {
                 return ResourceManager.GetString("WithoutAlerts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workflow Run ID.
+        /// </summary>
+        internal static string WorkflowRunId {
+            get {
+                return ResourceManager.GetString("WorkflowRunId", resourceCulture);
             }
         }
     }

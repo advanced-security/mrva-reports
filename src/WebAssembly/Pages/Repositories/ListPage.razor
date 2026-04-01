@@ -43,8 +43,9 @@
             Class="mt-0"/>
     </ToolBarContent>
     <Columns>
-        <PropertyColumn Property="r => r.Repository.RepositoryName" Title="@ScreenText.Name" />
+        <PropertyColumn Property="r => r.Repository.RepositoryFullName" Title="@ScreenText.Name" />
         <PropertyColumn Property="r => r.Repository.RepositoryUrl" Title="@ScreenText.Url" />
+        <PropertyColumn Property="r => r.Repository.AnalysisStatus" Title="@ScreenText.Status" />
         <PropertyColumn Property="r => r.AlertCount" Title="@ScreenText.Alerts" />
     </Columns>
     <PagerContent>

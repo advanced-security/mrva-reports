@@ -153,5 +153,62 @@
     <data name="ResultFingerprint" xml:space="preserve">
         <value>Result Fingerprint</value>
     </data>
+    <data name="AnalysisDate" xml:space="preserve">
+        <value>Date</value>
+    </data>
+    <data name="Started" xml:space="preserve">
+        <value>Started</value>
+    </data>
+    <data name="Completed" xml:space="preserve">
+        <value>Completed</value>
+    </data>
+    <data name="ToolName" xml:space="preserve">
+        <value>Tool</value>
+    </data>
+    <data name="ToolVersion" xml:space="preserve">
+        <value>Tool Version</value>
+    </data>
+    <data name="ControllerRepo" xml:space="preserve">
+        <value>Controller Repo</value>
+    </data>
+    <data name="State" xml:space="preserve">
+        <value>State</value>
+    </data>
+    <data name="QueryLanguage" xml:space="preserve">
+        <value>Query Language</value>
+    </data>
+    <data name="Status" xml:space="preserve">
+        <value>Status</value>
+    </data>
+    <data name="FailureReason" xml:space="preserve">
+        <value>Failure Reason</value>
+    </data>
+    <data name="ScannedRepos" xml:space="preserve">
+        <value>Scanned Repos</value>
+    </data>
+    <data name="SkippedRepos" xml:space="preserve">
+        <value>Skipped Repos</value>
+    </data>
+    <data name="NotFoundRepos" xml:space="preserve">
+        <value>Not Found Repos</value>
+    </data>
+    <data name="NoCodeQLDBRepos" xml:space="preserve">
+        <value>No CodeQL DB Repos</value>
+    </data>
+    <data name="OverLimitRepos" xml:space="preserve">
+        <value>Over Limit Repos</value>
+    </data>
+    <data name="WorkflowRunId" xml:space="preserve">
+        <value>Workflow Run ID</value>
+    </data>
+    <data name="TotalRepos" xml:space="preserve">
+        <value>Total Repos</value>
+    </data>
+    <data name="AnalysisDetails" xml:space="preserve">
+        <value>Analysis Details</value>
+    </data>
+    <data name="RepositoryBreakdown" xml:space="preserve">
+        <value>Repository Breakdown</value>
+    </data>
     
 </root>

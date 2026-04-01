@@ -9,29 +9,114 @@
 
 <MudContainer MaxWidth="MaxWidth.False" Class="pa-4">
     <MudText Typo="Typo.h5" Class="mb-2">MRVA Analysis ID: @AnalysisId</MudText>
+    <MudGrid Class="mt-2" Spacing="4">
+        <MudItem xs="12" sm="4">
+            <MudPaper Class="d-flex flex-column align-center justify-center pa-4" Elevation="2">
+                <MudIcon Icon="@Icons.Material.Outlined.CalendarMonth" Size="Size.Medium" Color="Color.Default" />
+                <MudText Typo="Typo.subtitle1" Class="mt-1">@AnalysisDate</MudText>
+                <MudText Typo="Typo.caption" Color="Color.Default">Report Generation Date</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudPaper Class="d-flex flex-column align-center justify-center pa-4" Elevation="2">
+                <MudIcon Icon="@Icons.Material.Outlined.PlayCircleOutline" Size="Size.Medium" Color="Color.Success" />
+                <MudText Typo="Typo.subtitle1" Class="mt-1">@AnalysisStarted</MudText>
+                <MudText Typo="Typo.caption" Color="Color.Default">Analysis Start Date</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudPaper Class="d-flex flex-column align-center justify-center pa-4" Elevation="2">
+                <MudIcon Icon="@Icons.Material.Outlined.CheckCircleOutline" Size="Size.Medium" Color="Color.Info" />
+                <MudText Typo="Typo.subtitle1" Class="mt-1">@AnalysisCompleted</MudText>
+                <MudText Typo="Typo.caption" Color="Color.Default">Analysis Completed Date</MudText>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+    <MudGrid Class="mt-4" Spacing="4">
+        <MudItem xs="12">
+            <MudPaper Class="pa-6" Elevation="2">
+                <MudText Typo="Typo.h6" Class="mb-4">@ScreenText.AnalysisDetails</MudText>
+                <MudSimpleTable Dense="true" Hover="true" Striped="true" Elevation="0">
+                    <tbody>
+                        <tr><td><strong>@ScreenText.ToolName</strong></td><td>@ToolName</td></tr>
+                        <tr><td><strong>@ScreenText.ControllerRepo</strong></td><td>@ControllerRepo</td></tr>
+                        <tr><td><strong>@ScreenText.QueryLanguage</strong></td><td>@QueryLanguage</td></tr>
+                        <tr><td><strong>@ScreenText.State</strong></td><td>@AnalysisState</td></tr>
+                        <tr><td><strong>@ScreenText.Status</strong></td><td>@AnalysisStatus</td></tr>
+                        @if (!string.IsNullOrEmpty(FailureReason))
+                        {
+                            <tr><td><strong>@ScreenText.FailureReason</strong></td><td>@FailureReason</td></tr>
+                        }
+                        <tr><td><strong>@ScreenText.WorkflowRunId</strong></td><td>@ActionsWorkflowRunId</td></tr>
+                    </tbody>
+                </MudSimpleTable>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+    <MudGrid Class="mt-4" Spacing="4">
+        <MudItem xs="12">
+            <MudText Typo="Typo.h6" Class="mb-2">@ScreenText.RepositoryBreakdown</MudText>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="2">
+            <MudPaper Class="d-flex flex-column align-center justify-center pa-4" Elevation="2" Style="cursor: pointer" @onclick="() => NavigateToReposByStatus()">
+                <MudText Typo="Typo.h5">@TotalReposCount</MudText>
+                <MudText Typo="Typo.caption" Color="Color.Default">@ScreenText.TotalRepos</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="2">
+            <MudPaper Class="d-flex flex-column align-center justify-center pa-4" Elevation="2" Style="cursor: pointer" @onclick="@(() => NavigateToReposByStatus("succeeded"))">
+                <MudText Typo="Typo.h5" Color="Color.Success">@ScannedReposCount</MudText>
+                <MudText Typo="Typo.caption" Color="Color.Default">@ScreenText.ScannedRepos</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="2">
+            <MudPaper Class="d-flex flex-column align-center justify-center pa-4" Elevation="2" Style="cursor: pointer" @onclick="@(() => NavigateToReposByStatus("skipped"))">
+                <MudText Typo="Typo.h5" Color="Color.Warning">@SkippedReposCount</MudText>
+                <MudText Typo="Typo.caption" Color="Color.Default">@ScreenText.SkippedRepos</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="2">
+            <MudPaper Class="d-flex flex-column align-center justify-center pa-4" Elevation="2" Style="cursor: pointer" @onclick="@(() => NavigateToReposByStatus("not_found"))">
+                <MudText Typo="Typo.h5" Color="Color.Error">@NotFoundReposCount</MudText>
+                <MudText Typo="Typo.caption" Color="Color.Default">@ScreenText.NotFoundRepos</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="2">
+            <MudPaper Class="d-flex flex-column align-center justify-center pa-4" Elevation="2" Style="cursor: pointer" @onclick="@(() => NavigateToReposByStatus("no_codeql_db"))">
+                <MudText Typo="Typo.h5" Color="Color.Info">@NoCodeqlDbReposCount</MudText>
+                <MudText Typo="Typo.caption" Color="Color.Default">@ScreenText.NoCodeQLDBRepos</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="2">
+            <MudPaper Class="d-flex flex-column align-center justify-center pa-4" Elevation="2" Style="cursor: pointer" @onclick="@(() => NavigateToReposByStatus("over_limit"))">
+                <MudText Typo="Typo.h5" Color="Color.Secondary">@OverLimitReposCount</MudText>
+                <MudText Typo="Typo.caption" Color="Color.Default">@ScreenText.OverLimitRepos</MudText>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
     <MudGrid Class="mt-4" Spacing="4">
         <MudItem xs="12" sm="6" md="4">
-        <MudPaper Class="d-flex flex-column align-center justify-center pa-6" Elevation="2" Style="cursor: pointer" @onclick="NavigateToAlerts">
-            <MudIcon Icon="@Icons.Material.Outlined.BugReport" Size="Size.Large" Color="Color.Error" />
-            <MudText Typo="Typo.h4" Class="mt-2">@AlertCount</MudText>
-            <MudText Typo="Typo.body2" Color="Color.Default">@ScreenText.TotalAlerts</MudText>
-        </MudPaper>
-    </MudItem>
-    <MudItem xs="12" sm="6" md="4">
-        <MudPaper Class="d-flex flex-column align-center justify-center pa-6" Elevation="2" Style="cursor: pointer" @onclick="NavigateToRepositories">
-            <MudIcon Icon="@Icons.Material.Outlined.Code" Size="Size.Large" Color="Color.Primary" />
-            <MudText Typo="Typo.h4" Class="mt-2">@RepositoryCount</MudText>
-            <MudText Typo="Typo.body2" Color="Color.Default">@ScreenText.TotalRepositories</MudText>
-        </MudPaper>
-    </MudItem>
-    <MudItem xs="12" sm="6" md="4">
-        <MudPaper Class="d-flex flex-column align-center justify-center pa-6" Elevation="2" Style="cursor: pointer" @onclick="NavigateToRules">
-            <MudIcon Icon="@Icons.Material.Outlined.Rule" Size="Size.Large" Color="Color.Warning" />
-            <MudText Typo="Typo.h4" Class="mt-2">@RuleCount</MudText>
-            <MudText Typo="Typo.body2" Color="Color.Default">@ScreenText.TotalRules</MudText>
-        </MudPaper>
-    </MudItem>
-</MudGrid>
+            <MudPaper Class="d-flex flex-column align-center justify-center pa-6" Elevation="2" Style="cursor: pointer" @onclick="NavigateToAlerts">
+                <MudIcon Icon="@Icons.Material.Outlined.BugReport" Size="Size.Large" Color="Color.Error" />
+                <MudText Typo="Typo.h4" Class="mt-2">@AlertCount</MudText>
+                <MudText Typo="Typo.body2" Color="Color.Default">@ScreenText.TotalAlerts</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Class="d-flex flex-column align-center justify-center pa-6" Elevation="2" Style="cursor: pointer" @onclick="NavigateToRepositories">
+                <MudIcon Icon="@Icons.Material.Outlined.Code" Size="Size.Large" Color="Color.Primary" />
+                <MudText Typo="Typo.h4" Class="mt-2">@RepositoryCount</MudText>
+                <MudText Typo="Typo.body2" Color="Color.Default">@ScreenText.TotalRepositories</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Class="d-flex flex-column align-center justify-center pa-6" Elevation="2" Style="cursor: pointer" @onclick="NavigateToRules">
+                <MudIcon Icon="@Icons.Material.Outlined.Rule" Size="Size.Large" Color="Color.Warning" />
+                <MudText Typo="Typo.h4" Class="mt-2">@RuleCount</MudText>
+                <MudText Typo="Typo.body2" Color="Color.Default">@ScreenText.TotalRules</MudText>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
     <MudGrid Class="mt-4 align-stretch" Spacing="4">
         <MudItem xs="12" md="6" Class="d-flex">
             <MudPaper Class="pa-6 flex-grow-1" Elevation="2">

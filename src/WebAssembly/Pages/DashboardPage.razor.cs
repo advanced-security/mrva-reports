@@ -23,6 +23,23 @@ public partial class DashboardPage
     private int RepositoryCount { get; set; }
     private int RuleCount { get; set; }
     private string AnalysisId { get; set; } = string.Empty;
+    private string ToolName { get; set; } = string.Empty;
+    private string ToolVersion { get; set; } = string.Empty;
+    private string ControllerRepo { get; set; } = string.Empty;
+    private string AnalysisDate { get; set; } = string.Empty;
+    private string AnalysisState { get; set; } = string.Empty;
+    private string QueryLanguage { get; set; } = string.Empty;
+    private string AnalysisStarted { get; set; } = string.Empty;
+    private string AnalysisCompleted { get; set; } = string.Empty;
+    private string AnalysisStatus { get; set; } = string.Empty;
+    private string FailureReason { get; set; } = string.Empty;
+    private int ScannedReposCount { get; set; }
+    private int SkippedReposCount { get; set; }
+    private int NotFoundReposCount { get; set; }
+    private int NoCodeqlDbReposCount { get; set; }
+    private int OverLimitReposCount { get; set; }
+    private int ActionsWorkflowRunId { get; set; }
+    private int TotalReposCount { get; set; }
 
     private double[] SeverityData { get; set; } = [];
     private string[] SeverityLabels { get; set; } = [];
@@ -101,9 +118,25 @@ public partial class DashboardPage
         RepositoryCount = DataStore.RepositorySet.Count;
         RuleCount = DataStore.RuleSet.Count;
 
-        AnalysisId = DataStore.RunSet
-            .Select(r => r.AnalysisRowId)
-            .FirstOrDefault(id => !string.IsNullOrEmpty(id)) ?? string.Empty;
+        var analysis = DataStore.AnalysisSet.FirstOrDefault();
+        AnalysisId = analysis?.AnalysisId ?? string.Empty;
+        ToolName = analysis?.ToolName ?? string.Empty;
+        ToolVersion = analysis?.ToolVersion ?? string.Empty;
+        ControllerRepo = analysis?.ControllerRepo ?? string.Empty;
+        AnalysisDate = analysis?.Date ?? string.Empty;
+        AnalysisState = analysis?.State ?? string.Empty;
+        QueryLanguage = analysis?.QueryLanguage ?? string.Empty;
+        AnalysisStarted = analysis?.CreatedAt ?? string.Empty;
+        AnalysisCompleted = analysis?.CompletedAt ?? string.Empty;
+        AnalysisStatus = analysis?.Status ?? string.Empty;
+        FailureReason = analysis?.FailureReason ?? string.Empty;
+        ScannedReposCount = analysis?.ScannedReposCount ?? 0;
+        SkippedReposCount = analysis?.SkippedReposCount ?? 0;
+        NotFoundReposCount = analysis?.NotFoundReposCount ?? 0;
+        NoCodeqlDbReposCount = analysis?.NoCodeqlDbReposCount ?? 0;
+        OverLimitReposCount = analysis?.OverLimitReposCount ?? 0;
+        ActionsWorkflowRunId = analysis?.ActionsWorkflowRunId ?? 0;
+        TotalReposCount = analysis?.TotalReposCount ?? 0;
 
         var ruleSeverityMap = DataStore.RuleSet.ToDictionary(r => r.RowId, r => r.SeverityLevel);
         var ruleNameMap = DataStore.RuleSet.ToDictionary(r => r.RowId, r => r.Id);
@@ -116,7 +149,7 @@ public partial class DashboardPage
         SeverityLabels = severityGroups.Select(g => g.Key).ToArray();
         SeverityData = severityGroups.Select(g => (double)g.Count()).ToArray();
 
-        var repoNameMap = DataStore.RepositorySet.ToDictionary(r => r.RowId, r => r.RepositoryName);
+        var repoNameMap = DataStore.RepositorySet.ToDictionary(r => r.RowId, r => r.RepositoryFullName);
 
         var ruleGroups = DataStore.AlertSet
             .GroupBy(a => ruleNameMap.TryGetValue(a.RuleRowId, out var id) ? id : "unknown")
@@ -228,4 +261,10 @@ public partial class DashboardPage
     private void NavigateToAlerts() => NavigationManager.NavigateTo("/alert");
     private void NavigateToRepositories() => NavigationManager.NavigateTo("/repo");
     private void NavigateToRules() => NavigationManager.NavigateTo("/rule");
+
+    private void NavigateToReposByStatus(string? status = null)
+    {
+        var url = status is null ? "/repo" : $"/repo?status={Uri.EscapeDataString(status)}";
+        NavigationManager.NavigateTo(url);
+    }
 }
