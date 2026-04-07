@@ -81,21 +81,10 @@ public partial class ListPage
 
         SearchString = InitialSearch;
 
-        var alertCountsByRule = DataStore.AlertSet
-            .GroupBy(a => a.RuleRowId)
-            .ToDictionary(g => g.Key, g => g.Count());
+        var details = DataStore.GetRuleDetails(HasAlertsFilter);
 
-        RuleRows = DataStore.RuleSet
-            .OrderBy(r => r.Id)
-            .Select(r => new RuleRow(
-                r,
-                alertCountsByRule.TryGetValue(r.RowId, out var count) ? count : 0))
-            .Where(r => HasAlertsFilter switch
-            {
-                "true" => r.AlertCount > 0,
-                "false" => r.AlertCount == 0,
-                _ => true,
-            })
+        RuleRows = details
+            .Select(d => new RuleRow(d.Rule, d.AlertCount))
             .ToImmutableList();
 
         PageSize = RuleRows.Count switch

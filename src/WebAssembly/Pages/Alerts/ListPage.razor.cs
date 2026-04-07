@@ -1,4 +1,3 @@
-using System.Collections.Immutable;
 using Microsoft.AspNetCore.Components;
 using MRVA.Reports.Data.Models;
 using MRVA.Reports.Data.Services;
@@ -24,62 +23,34 @@ public partial class ListPage
     [SupplyParameterFromQuery(Name = "search")]
     public string? InitialSearch { get; set; }
 
-    private IList<AlertRow>? AlertRows { get; set; }
-
-    private int PageSize { get; set; } = 10;
-
     private string? SearchString { get; set; }
 
-    private Func<AlertRow, bool> AlertFilter => row =>
-    {
-        if (string.IsNullOrWhiteSpace(SearchString))
-        {
-            return true;
-        }
-
-        var s = SearchString;
-        var c = StringComparison.OrdinalIgnoreCase;
-
-        return row.RuleName.Contains(s, c)
-            || row.RuleKind.Contains(s, c)
-            || row.RepositoryName.Contains(s, c)
-            || row.Severity.Contains(s, c)
-            || row.Alert.FilePath.Contains(s, c)
-            || row.Alert.Message.Contains(s, c)
-            || row.Alert.CodeSnippetSource.Contains(s, c)
-            || row.Alert.CodeSnippetSink.Contains(s, c)
-            || row.Alert.CodeSnippet.Contains(s, c)
-            || row.Alert.CodeSnippetContext.Contains(s, c)
-            || row.Alert.ResultFingerprint.Contains(s, c);
-    };
+    private MudDataGrid<AlertRow>? _dataGrid;
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
-
         SearchString = InitialSearch;
+    }
 
-        var ruleNameMap = DataStore.RuleSet.ToDictionary(r => r.RowId, r => r.Id);
-        var ruleKindMap = DataStore.RuleSet.ToDictionary(r => r.RowId, r => r.Kind);
-        var ruleSeverityMap = DataStore.RuleSet.ToDictionary(r => r.RowId, r => r.SeverityLevel);
-        var repoNameMap = DataStore.RepositorySet.ToDictionary(r => r.RowId, r => r.RepositoryFullName);
+    private Task<GridData<AlertRow>> LoadServerData(GridState<AlertRow> state)
+    {
+        var (details, totalItems) = DataStore.GetAlertDetailsPaged(state.Page, state.PageSize, SearchString);
 
-        AlertRows = DataStore.AlertSet
-            .OrderBy(a => a.RowId)
-            .Select(a => new AlertRow(
-                a,
-                ruleNameMap.TryGetValue(a.RuleRowId, out var ruleName) ? ruleName : $"Rule {a.RuleRowId}",
-                ruleKindMap.TryGetValue(a.RuleRowId, out var ruleKind) ? ruleKind : "unknown",
-                repoNameMap.TryGetValue(a.RepositoryRowId, out var repoName) ? repoName : $"Repo {a.RepositoryRowId}",
-                ruleSeverityMap.TryGetValue(a.RuleRowId, out var severity) ? severity : "unknown"))
-            .ToImmutableList();
+        var rows = details
+            .Select(d => new AlertRow(d.Alert, d.RuleName, d.RuleKind, d.RepositoryName, d.Severity))
+            .ToList();
 
-        PageSize = AlertRows.Count switch
+        return Task.FromResult(new GridData<AlertRow>
         {
-            > 100 => 100,
-            > 50 => 50,
-            > 10 => 25,
-            _ => 10,
-        };
+            TotalItems = totalItems,
+            Items = rows,
+        });
+    }
+
+    private void OnSearchChanged(string? value)
+    {
+        SearchString = value;
+        _dataGrid?.ReloadServerData();
     }
 }

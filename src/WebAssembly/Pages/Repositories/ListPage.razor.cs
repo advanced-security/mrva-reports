@@ -64,23 +64,10 @@ public partial class ListPage
 
         SearchString = InitialSearch;
 
-        var alertCountsByRepo = DataStore.AlertSet
-            .GroupBy(a => a.RepositoryRowId)
-            .ToDictionary(g => g.Key, g => g.Count());
+        var details = DataStore.GetRepositoryDetails(HasAlertsFilter, StatusFilter);
 
-        RepositoryList = DataStore.RepositorySet
-            .OrderBy(r => r.RepositoryFullName)
-            .Select(r => new RepositoryRow(
-                r,
-                alertCountsByRepo.TryGetValue(r.RowId, out var count) ? count : 0))
-            .Where(r => HasAlertsFilter switch
-            {
-                "true" => r.AlertCount > 0,
-                "false" => r.AlertCount == 0,
-                _ => true,
-            })
-            .Where(r => string.IsNullOrEmpty(StatusFilter)
-                || r.Repository.AnalysisStatus.Equals(StatusFilter, StringComparison.OrdinalIgnoreCase))
+        RepositoryList = details
+            .Select(d => new RepositoryRow(d.Repository, d.AlertCount))
             .ToImmutableList();
 
         PageSize = RepositoryList.Count switch
