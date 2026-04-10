@@ -2,6 +2,15 @@ name: Deploy to GitHub Pages
 
 on:
   workflow_dispatch:
+    inputs:
+      analysis-id:
+        description: 'MRVA analysis ID'
+        required: true
+        type: string
+      controller-repo:
+        description: 'Controller repository (owner/name)'
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -12,6 +21,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  DATA_DIR: src/WebAssembly/wwwroot/data
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,6 +31,63 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set analysis directory
+        run: |
+          SANITIZED_REPO="${{ inputs.controller-repo }}"
+          SANITIZED_REPO="${SANITIZED_REPO//\//-}"
+          echo "ANALYSIS_DIR=analyses/${{ inputs.analysis-id }}-${SANITIZED_REPO}" >> "$GITHUB_ENV"
+
+      # ── sarif-sql: download SARIF data and transform to SQLite ───────
+      - name: Download sarif-sql CLI
+        run: |
+          gh release download --repo ghas-projects/sarif-sql \
+            --pattern 'sarif-sql-linux-amd64' \
+            --output sarif-sql
+          chmod +x sarif-sql
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: sarif-sql analysis start
+        run: |
+          ./sarif-sql analysis start \
+            --analysis-id ${{ inputs.analysis-id }} \
+            --controller-repo ${{ inputs.controller-repo }} \
+            --token ${{ secrets.TOKEN }}
+
+      - name: sarif-sql analysis download
+        run: |
+          ./sarif-sql analysis download \
+            --analysis-id ${{ inputs.analysis-id }} \
+            --controller-repo ${{ inputs.controller-repo }} \
+            --directory ${{ env.ANALYSIS_DIR }} \
+            --token ${{ secrets.TOKEN }}
+
+      - name: sarif-sql analysis transform
+        run: |
+          mkdir -p ${{ env.DATA_DIR }}
+          ./sarif-sql transform \
+            --analysis-id ${{ inputs.analysis-id }} \
+            --controller-repo ${{ inputs.controller-repo }} \
+            --sarif-directory ${{ env.ANALYSIS_DIR }} \
+            --output ${{ env.DATA_DIR }}
+
+      # ── mrva-prep: index, dashboard & compress ───────────────────────
+      - name: Download mrva-prep CLI
+        run: |
+          gh release download --repo ghas-projects/mrva-prep \
+            --pattern 'mrva-prep-linux-amd64' \
+            --output mrva-prep
+          chmod +x mrva-prep
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: mrva-prep index
+        run: ./mrva-prep index --db ${{ env.DATA_DIR }}/mrva-analysis.db
+
+      - name: mrva-prep dashboard
+        run: ./mrva-prep dashboard --db ${{ env.DATA_DIR }}/mrva-analysis.db --output ${{ env.DATA_DIR }}
+
+      # ── Build & publish Blazor WASM ──────────────────────────────────
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
