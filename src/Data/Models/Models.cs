@@ -61,6 +61,5 @@ public sealed record Alert
     public string ResultFingerprint { get; init; } = string.Empty;
     public int StepCount { get; init; }
     public int RepositoryRowId { get; init; }
-    public int AnalysisRowId { get; init; }
     public int RuleRowId { get; init; }
 }

@@ -293,7 +293,7 @@ public sealed class DataStore : IDisposable
                 a.row_id, a.file_path, a.start_line, a.start_column, a.end_line, a.end_column,
                 a.code_snippet_source, a.code_snippet_sink, a.code_snippet, a.code_snippet_context,
                 a.message, a.result_fingerprint, a.step_count,
-                a.repository_row_id, a.analysis_row_id, a.rule_row_id,
+                a.repository_row_id, a.rule_row_id,
                 r.id AS rule_name, r.kind AS rule_kind, COALESCE(r.severity_level, 'unknown') AS severity,
                 repo.repository_full_name AS repo_name
             FROM alert a
@@ -518,7 +518,6 @@ public sealed class DataStore : IDisposable
         ResultFingerprint = GetStringOrEmpty(reader, "result_fingerprint"),
         StepCount = GetIntOrDefault(reader, "step_count"),
         RepositoryRowId = reader.GetInt32(reader.GetOrdinal("repository_row_id")),
-        AnalysisRowId = reader.GetInt32(reader.GetOrdinal("analysis_row_id")),
         RuleRowId = reader.GetInt32(reader.GetOrdinal("rule_row_id")),
     };
 
