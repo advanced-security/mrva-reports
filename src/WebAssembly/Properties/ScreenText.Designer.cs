@@ -526,6 +526,15 @@ namespace MRVA.Reports.WebAssembly.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tool Version.
+        /// </summary>
+        internal static string ToolVersion {
+            get {
+                return ResourceManager.GetString("ToolVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Top 10 Affected Repositories.
         /// </summary>
         internal static string Top10AffectedRepositories {

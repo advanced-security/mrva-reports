@@ -156,6 +156,9 @@
     <data name="ToolName" xml:space="preserve">
         <value>Tool</value>
     </data>
+    <data name="ToolVersion" xml:space="preserve">
+        <value>Tool Version</value>
+    </data>
     <data name="ControllerRepo" xml:space="preserve">
         <value>Controller Repo</value>
     </data>
