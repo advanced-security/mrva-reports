@@ -70,6 +70,16 @@ The published output is in `src/WebAssembly/bin/Release/net10.0/publish/wwwroot/
 - [Microsoft.Data.Sqlite](https://learn.microsoft.com/dotnet/standard/data/sqlite/) - client-side SQLite via Emscripten MEMFS
 - Browser-native [`DecompressionStream`](https://developer.mozilla.org/en-US/docs/Web/API/DecompressionStream) API for gzip decompression
 
+## Pipeline
+
+`mrva-reports` is one component of the end-to-end MRVA reporting pipeline. The full flow is:
+
+1. [**sarif-sql**](https://github.com/ghas-projects/sarif-sql) — Download SARIF artifacts and transform them into a normalized SQLite database.
+2. [**mrva-prep**](https://github.com/ghas-projects/mrva-prep) — Add query-optimized indexes, extract dashboard metrics, and compress the database.
+3. **mrva-reports** (this repo) — Render the database as an interactive single-page dashboard in the browser.
+
+A GitHub Actions workflow chains all three steps into a single automated run. See the [MRVA Documentation](https://github.com/advanced-security/mrva-documentation) for the full architecture and user guide.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
