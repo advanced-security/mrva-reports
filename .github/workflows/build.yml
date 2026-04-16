@@ -31,4 +31,4 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: Publish
-        run: dotnet publish src/WebAssembly --no-build --configuration Release
+        run: dotnet publish src/WebAssembly --configuration Release
