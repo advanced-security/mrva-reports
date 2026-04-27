@@ -8,7 +8,24 @@
     <RootNamespace>MRVA.Reports.WebAssembly</RootNamespace>
     <TargetFramework>net10.0</TargetFramework>
     <RunAOTCompilation>true</RunAOTCompilation>
+    <!-- Keep IL available so excluded assemblies fall back to the interpreter -->
+    <WasmStripILAfterAOT>false</WasmStripILAfterAOT>
   </PropertyGroup>
+
+  <!--
+    Exclude SQLite assemblies from AOT compilation.
+    The native e_sqlite3 WASM module uses varargs in sqlite3_config and
+    sqlite3_db_config, which Emscripten cannot call correctly from
+    AOT-compiled P/Invoke stubs (WASM0001). Running these assemblies
+    interpreted avoids the calling-convention mismatch while keeping
+    AOT for everything else.
+  -->
+  <ItemGroup>
+    <WasmAssembliesToSkipAOT Include="Microsoft.Data.Sqlite.dll" />
+    <WasmAssembliesToSkipAOT Include="SQLitePCLRaw.batteries_v2.dll" />
+    <WasmAssembliesToSkipAOT Include="SQLitePCLRaw.core.dll" />
+    <WasmAssembliesToSkipAOT Include="SQLitePCLRaw.provider.e_sqlite3.dll" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.1" />
